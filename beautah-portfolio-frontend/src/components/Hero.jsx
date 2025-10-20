@@ -8,11 +8,14 @@ import Typewriter from './ui/Typewriter';
 const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
   
-  // Award images array - replace with actual award image paths
+  // Award images array - updated with 6 images
   const awardImages = [
     '/images/1PM.jpeg',
     '/images/2PM.jpeg',
     '/images/3 PM.jpeg',
+    '/images/4PM.jpeg', // Add your 4th image
+    '/images/5PM.jpeg', // Add your 5th image
+    '/images/6PM.jpeg', // Add your 6th image
   ];
 
   // Single standout achievement
@@ -173,7 +176,7 @@ const Hero = () => {
                   />
                 </AnimatePresence>
                 
-                {/* Image Navigation Dots */}
+                {/* Image Navigation Dots - Now shows 6 dots */}
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
                   {awardImages.map((_, index) => (
                     <button
