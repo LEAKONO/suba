@@ -12,13 +12,13 @@ export const personalInfo = {
 export const socialLinks = [
   {
     name: "LinkedIn",
-    url: "#",
+    url: "https://www.linkedin.com/in/bmsuba2024/",
     icon: FaLinkedin,
     color: "hover:text-blue-600"
   },
   {
     name: "Twitter",
-    url: "#",
+    url: "https://x.com/legacy_suba?t=XPoiuzjothEQeKZTHzWEPA&s=08",
     icon: FaTwitter,
     color: "hover:text-sky-500"
   },

@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, ArrowUp } from 'lucide-react';
-import { FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import { personalInfo, socialLinks } from '../utils/constants';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 
@@ -55,11 +54,16 @@ const Footer = () => {
                   <motion.a
                     key={index}
                     href={social.url}
-                    className={`w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/20 border border-white/20 backdrop-blur-sm transition-all duration-300 ${social.color}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-gray-300 border border-white/20 backdrop-blur-sm transition-all duration-300 hover:bg-white/20 hover:scale-110 hover:-translate-y-1"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <IconComponent size={18} />
+                    <IconComponent 
+                      size={18} 
+                      className="transition-colors duration-300 hover:text-white"
+                    />
                   </motion.a>
                 );
               })}
