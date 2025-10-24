@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
+import Training from './components/Training';
 import Achievements from './components/Achievements';
 import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
@@ -22,7 +23,7 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       // Update active section
-      const sections = ['home', 'about', 'skills', 'experience', 'achievements', 'projects', 'testimonials', 'contact'];
+      const sections = ['home', 'about', 'skills', 'experience', 'training', 'achievements', 'projects', 'testimonials', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -48,6 +49,7 @@ function App() {
       <About />
       <Skills />
       <Experience />
+      <Training />
       <Achievements />
       <Projects />
       <Testimonials />

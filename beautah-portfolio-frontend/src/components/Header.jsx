@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
-import { FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
 import { personalInfo, socialLinks } from '../utils/constants';
 
 const Header = ({ activeSection }) => {
@@ -13,6 +12,7 @@ const Header = ({ activeSection }) => {
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
+    { name: 'Training', href: '#training' },
     { name: 'Achievements', href: '#achievements' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -55,12 +55,12 @@ const Header = ({ activeSection }) => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-6">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className={`relative font-medium transition-all duration-300 px-3 py-2 rounded-lg ${
+                className={`relative font-medium transition-all duration-300 px-3 py-2 rounded-lg text-sm ${
                   activeSection === item.href.substring(1)
                     ? 'text-primary-600 bg-primary-50'
                     : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'
@@ -79,7 +79,7 @@ const Header = ({ activeSection }) => {
           </div>
 
           {/* Social Links */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-3 ml-4">
             {socialLinks.map((social, index) => {
               const IconComponent = social.icon;
               return (
@@ -90,7 +90,7 @@ const Header = ({ activeSection }) => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <IconComponent size={20} />
+                  <IconComponent size={18} />
                 </motion.a>
               );
             })}
@@ -117,12 +117,12 @@ const Header = ({ activeSection }) => {
               transition={{ duration: 0.3 }}
               className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-md rounded-xl mt-2 shadow-xl border border-gray-200"
             >
-              <div className="py-4 space-y-2">
+              <div className="py-4 space-y-1">
                 {navItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className={`block px-6 py-3 font-medium transition-all duration-300 ${
+                    className={`block px-6 py-3 font-medium transition-all duration-300 text-sm ${
                       activeSection === item.href.substring(1)
                         ? 'text-primary-600 bg-primary-50 border-r-4 border-primary-500'
                         : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'
@@ -134,18 +134,18 @@ const Header = ({ activeSection }) => {
                 ))}
                 
                 {/* Mobile Social Links */}
-                <div className="flex justify-center space-x-6 pt-4 border-t border-gray-200 mx-6">
+                <div className="flex justify-center space-x-4 pt-4 border-t border-gray-200 mx-6 mt-4">
                   {socialLinks.map((social, index) => {
                     const IconComponent = social.icon;
                     return (
                       <motion.a
                         key={index}
                         href={social.url}
-                        className={`p-3 text-gray-600 hover:text-white hover:bg-primary-500 rounded-xl transition-all duration-300 ${social.color}`}
+                        className={`p-2 text-gray-600 hover:text-white hover:bg-primary-500 rounded-lg transition-all duration-300 ${social.color}`}
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                       >
-                        <IconComponent size={20} />
+                        <IconComponent size={18} />
                       </motion.a>
                     );
                   })}
