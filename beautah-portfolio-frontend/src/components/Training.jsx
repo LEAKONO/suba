@@ -348,38 +348,6 @@ const Training = () => {
                 </motion.div>
               ))}
             </div>
-
-            {/* Additional Training Highlights */}
-            <motion.div 
-              className="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100"
-              variants={fadeInUp}
-            >
-              <h4 className="text-lg font-bold text-gray-900 mb-3">Training Portfolio</h4>
-              <div className="grid grid-cols-3 gap-2">
-                {trainingImages.slice(0, 6).map((image, index) => (
-                  <motion.div
-                    key={index}
-                    className="relative aspect-square rounded-lg overflow-hidden cursor-pointer border-2 border-transparent hover:border-blue-500 transition-all duration-300"
-                    whileHover={{ scale: 1.05 }}
-                    onClick={() => goToImage(index)}
-                  >
-                    <img
-                      src={image.url}
-                      alt={image.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/0 hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                      <div className="w-6 h-6 bg-white/90 rounded-full flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                        <ExternalLink size={12} className="text-gray-700" />
-                      </div>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-              <p className="text-sm text-gray-600 mt-3 text-center">
-                Click on any image to view in carousel
-              </p>
-            </motion.div>
           </motion.div>
         </div>
 
