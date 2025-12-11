@@ -6,13 +6,13 @@ import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Training from './components/Training';
 import Achievements from './components/Achievements';
+import Publications from './components/Publications';
 import Projects from './components/Projects';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import ChatBot from './components/ChatBot';
 import Footer from './components/Footer';
 import { motion } from "framer-motion";
-
 import { MessageCircle } from 'lucide-react';
 
 function App() {
@@ -22,8 +22,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Update active section
-      const sections = ['home', 'about', 'skills', 'experience', 'training', 'achievements', 'projects', 'testimonials', 'contact'];
+      const sections = ['home', 'about', 'skills', 'experience', 'training', 'achievements', 'publications', 'projects', 'testimonials', 'contact'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -34,7 +33,6 @@ function App() {
         }
       }
 
-      // Update scroll state for header
       setIsScrolled(window.scrollY > 50);
     };
 
@@ -51,6 +49,7 @@ function App() {
       <Experience />
       <Training />
       <Achievements />
+      <Publications />
       <Projects />
       <Testimonials />
       <Contact />
@@ -88,7 +87,7 @@ function App() {
       {/* Chat Bot */}
       <ChatBot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
 
-      {/* Loading Screen (optional) */}
+      {/* Loading Screen */}
       <div className="fixed inset-0 bg-white z-50 flex items-center justify-center transition-opacity duration-1000 opacity-0 pointer-events-none">
         <div className="text-center">
           <div className="loading-dots">

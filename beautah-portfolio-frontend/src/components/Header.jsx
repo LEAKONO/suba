@@ -14,6 +14,7 @@ const Header = ({ activeSection }) => {
     { name: 'Experience', href: '#experience' },
     { name: 'Training', href: '#training' },
     { name: 'Achievements', href: '#achievements' },
+    { name: 'Publications', href: '#publications' },
     { name: 'Contact', href: '#contact' },
   ];
 
