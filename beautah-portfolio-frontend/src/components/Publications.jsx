@@ -40,26 +40,11 @@ const Publications = () => {
     }
   ];
 
-  // Function to handle link clicks with better error handling
-  const handlePublicationClick = (link, title) => {
-    try {
-      window.open(link, '_blank', 'noopener,noreferrer');
-    } catch (error) {
-      console.error(`Failed to open link: ${title}`, error);
-      // Fallback: try a different method
-      const newWindow = window.open();
-      if (newWindow) {
-        newWindow.opener = null;
-        newWindow.location = link;
-      }
-    }
-  };
-
   return (
     <section id="publications" className="py-20 bg-gradient-to-br from-gray-50 to-primary-50 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent" />
       
       <motion.div 
         ref={ref}
@@ -81,7 +66,7 @@ const Publications = () => {
           <motion.div 
             className="w-24 h-1 bg-gradient-to-r from-primary-500 to-secondary-500 mx-auto mb-6 rounded-full"
             variants={scaleIn}
-          ></motion.div>
+          />
           <motion.p 
             className="text-xl text-gray-600 max-w-3xl mx-auto"
             variants={fadeInUp}
@@ -103,7 +88,7 @@ const Publications = () => {
               >
                 {/* Publication Header */}
                 <div className={`relative h-48 bg-gradient-to-r ${publication.color} p-6`}>
-                  <div className="absolute inset-0 bg-black/10"></div>
+                  <div className="absolute inset-0 bg-black/10" />
                   <div className="relative z-10 h-full flex flex-col justify-between">
                     <div className="flex justify-between items-start">
                       <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
@@ -123,7 +108,7 @@ const Publications = () => {
                 </div>
 
                 {/* Publication Content */}
-                <div className="p-6">
+                <div className="p-6 relative z-20"> {/* Added relative z-20 */}
                   <div className="mb-4">
                     <span className="inline-block bg-gray-100 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">
                       {publication.category}
@@ -133,20 +118,24 @@ const Publications = () => {
                     </p>
                   </div>
 
-                  {/* Action Button - UPDATED with onClick handler */}
-                  <motion.button
-                    onClick={() => handlePublicationClick(publication.link, publication.title)}
-                    className="inline-flex items-center justify-center w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white py-3 px-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group cursor-pointer"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
+                  {/* Action Button - FIXED with proper styling */}
+                  <a
+                    href={publication.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white py-3 px-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group cursor-pointer no-underline relative z-30"
+                    style={{ pointerEvents: 'auto' }}
                   >
                     <span>Read Publication</span>
                     <ExternalLink size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </motion.button>
+                  </a>
                 </div>
 
-                {/* Hover Effect */}
-                <div className="absolute inset-0 border-2 border-transparent bg-gradient-to-r from-primary-500 to-secondary-500 rounded-3xl opacity-0 group-hover:opacity-5 transition-opacity duration-300"></div>
+                {/* Hover Effect - Moved BEHIND the content */}
+                <div 
+                  className="absolute inset-0 border-2 border-transparent bg-gradient-to-r from-primary-500 to-secondary-500 rounded-3xl opacity-0 group-hover:opacity-5 transition-opacity duration-300"
+                  style={{ zIndex: 1, pointerEvents: 'none' }}
+                />
               </motion.div>
             );
           })}
@@ -158,7 +147,7 @@ const Publications = () => {
           variants={fadeInUp}
         >
           {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-10 bg-hero-pattern"></div>
+          <div className="absolute inset-0 opacity-10 bg-hero-pattern" />
           
           <div className="relative z-10">
             <div className="flex flex-col md:flex-row items-center justify-between">
@@ -171,15 +160,14 @@ const Publications = () => {
                 </p>
               </div>
               <div className="flex space-x-4">
-                <motion.a
+                <a
                   href="#contact"
-                  className="inline-flex items-center px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="inline-flex items-center px-6 py-3 bg-white text-gray-900 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 no-underline relative z-30"
+                  style={{ pointerEvents: 'auto' }}
                 >
                   Request Analysis
                   <ExternalLink size={18} className="ml-2" />
-                </motion.a>
+                </a>
               </div>
             </div>
           </div>
