@@ -1,16 +1,144 @@
-# React + Vite
+# Beautah Mwanza Suba - Professional Portfolio
+A modern, responsive portfolio website showcasing the professional achievements and expertise of Beautah Mwanza Suba, an award-winning humanitarian policy and security expert with 18+ years of experience in East, Central, and Horn of Africa.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+- Modern UI/UX: Clean, professional design with gradient effects and animations
 
-Currently, two official plugins are available:
+- Fully Responsive: Mobile-first design that works on all devices
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Interactive Components:
 
-## React Compiler
+   - AI Chatbot for professional inquiries
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+   - Image carousels for awards and training
 
-## Expanding the ESLint configuration
+   - Animated transitions and hover effects
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+   - Smooth scroll navigation
+
+- Comprehensive Sections:
+
+   - Professional profile with key highlights
+
+   - Skills with proficiency indicators
+
+   - Work experience timeline
+
+   - Training and development showcase
+
+    - Awards and achievements gallery
+
+    - Recent publications with direct links
+
+    - Contact form with email integration
+
+    - Testimonials from colleagues
+
+## Live Demo
+[https://suba-ruby.vercel.app/]
+
+## Tech Stack
+- Frontend: React 18, Vite
+
+- Styling: Tailwind CSS
+
+- Animations: Framer Motion
+
+- Icons: Lucide React
+
+- Typewriter Effect: Custom Typewriter component
+
+- Form Handling: React state management
+
+- Email Integration: Backend API for contact forms
+
+## 📁 Project Structure
+
+```text
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── Hero.jsx
+│   ├── About.jsx 
+│   ├── Skills.jsx
+│   ├── Experience.jsx
+│   ├── Training.jsx
+│   ├── Achievements.jsx
+│   ├── Publications.jsx
+│   ├── Projects.jsx
+│   ├── Testimonials.jsx
+│   ├── Contact.jsx
+│   ├── ChatBot.jsx
+│   ├── Footer.jsx
+│   └── ui/
+│       └── Typewriter.jsx 
+├── utils/
+│   └── constants.js
+├── hooks/
+│   └── useScrollAnimation.js
+├── animations.js
+└── main.jsx
+```
+### Getting Started
+#### Prerequisites
+- Node.js 16+ and npm/yarn
+
+### Installation
+Clone the repository:
+
+```bash
+git clone https://github.com/LEAKONO/suba
+cd beautah-portfolio
+```
+### Install dependencies:
+
+```bash
+npm install
+```
+### Start the development server:
+
+```bash
+npm run dev
+```
+Open your browser and visit:
+
+```text
+http://localhost:5173
+```
+
+
+
+
+## Styling
+- Colors: Edit tailwind.config.js for theme colors
+
+- Animations: Modify src/utils/animations.js
+
+- Global styles: Edit src/index.css
+
+
+
+
+
+## Deployment
+Vercel (Recommended)
+```bash
+npm install -g vercel
+vercel
+```
+Netlify
+```bash
+npm run build
+# Drag dist folder to Netlify
+```
+GitHub Pages
+```bash
+npm install --save-dev gh-pages
+# Update package.json scripts
+npm run deploy
+```
+###  License
+This project is for personal portfolio use. All rights to the content belong to Beautah Mwanza Suba.
+
+
+
