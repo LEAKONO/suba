@@ -40,6 +40,21 @@ const Publications = () => {
     }
   ];
 
+  // Function to handle link clicks with better error handling
+  const handlePublicationClick = (link, title) => {
+    try {
+      window.open(link, '_blank', 'noopener,noreferrer');
+    } catch (error) {
+      console.error(`Failed to open link: ${title}`, error);
+      // Fallback: try a different method
+      const newWindow = window.open();
+      if (newWindow) {
+        newWindow.opener = null;
+        newWindow.location = link;
+      }
+    }
+  };
+
   return (
     <section id="publications" className="py-20 bg-gradient-to-br from-gray-50 to-primary-50 relative overflow-hidden">
       {/* Background Elements */}
@@ -118,18 +133,16 @@ const Publications = () => {
                     </p>
                   </div>
 
-                  {/* Action Button */}
-                  <motion.a
-                    href={publication.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white py-3 px-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group"
+                  {/* Action Button - UPDATED with onClick handler */}
+                  <motion.button
+                    onClick={() => handlePublicationClick(publication.link, publication.title)}
+                    className="inline-flex items-center justify-center w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white py-3 px-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group cursor-pointer"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     <span>Read Publication</span>
                     <ExternalLink size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                  </motion.a>
+                  </motion.button>
                 </div>
 
                 {/* Hover Effect */}

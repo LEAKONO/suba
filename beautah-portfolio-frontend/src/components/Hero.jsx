@@ -13,9 +13,9 @@ const Hero = () => {
     '/images/1PM.jpeg',
     '/images/2PM.jpeg',
     '/images/3 PM.jpeg',
-    '/images/4PM.jpeg', // Add your 4th image
-    '/images/5PM.jpeg', // Add your 5th image
-    '/images/6PM.jpeg', // Add your 6th image
+    '/images/4PM.jpeg',
+    '/images/5PM.jpeg',
+    '/images/6PM.jpeg',
   ];
 
   // Single standout achievement
@@ -32,7 +32,7 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % awardImages.length);
-    }, 5000); // Change image every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [awardImages.length]);
@@ -85,7 +85,7 @@ const Hero = () => {
               className="text-base md:text-lg lg:text-xl mb-8 lg:mb-10 text-gray-200 leading-relaxed max-w-2xl drop-shadow-lg"
               variants={fadeInUp}
             >
-              Award-winning leader with <span className="text-white font-semibold">18+ years</span> in humanitarian policy, 
+              Award-winning leader with <span className="text-white font-semib">18+ years</span> in humanitarian policy, 
               access negotiation, and civil-military coordination across East, Central and Horn of Africa. 
               Recognized for resilience and commitment to human rights.
             </motion.p>
@@ -195,17 +195,6 @@ const Hero = () => {
           </motion.div>
         </div>
       </motion.div>
-
-      {/* Add custom animation for slow pulse */}
-      <style jsx>{`
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.6; }
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-      `}</style>
     </section>
   );
 };
