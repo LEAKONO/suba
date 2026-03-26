@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, ExternalLink, Calendar, Globe } from 'lucide-react';
+import { BookOpen, ExternalLink, Calendar, Globe, Shield } from 'lucide-react';
 import { fadeInUp, staggerContainer, scaleIn } from '../utils/animations';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
@@ -8,6 +8,16 @@ const Publications = () => {
   const [ref, controls] = useScrollAnimation();
 
   const publications = [
+    {
+      title: "Why imported tactics are undermining unified infantry strategy in Africa",
+      organization: "DefenceWeb",
+      date: "2026",
+      description: "Analysis of how foreign military doctrines and imported tactics are hindering the development of unified infantry strategies across African nations, calling for context-specific approaches to regional security challenges.",
+      link: "https://defenceweb.co.za/land/land-land/why-imported-tactics-are-undermining-unified-infantry-strategy-in-africa",
+      category: "Military Strategy",
+      icon: Shield,
+      color: "from-red-500 to-orange-500"
+    },
     {
       title: "Weak enforcement measures exacerbate SIM swapping in the DRC",
       organization: "ENACT Africa",
@@ -75,19 +85,19 @@ const Publications = () => {
           </motion.p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-12">
           {publications.map((publication, index) => {
             const IconComponent = publication.icon;
             return (
               <motion.div
                 key={index}
-                className="group relative bg-white rounded-3xl shadow-2xl hover-lift overflow-hidden border border-gray-200"
+                className="group relative bg-white rounded-3xl shadow-2xl hover-lift overflow-hidden border border-gray-200 h-full flex flex-col"
                 variants={fadeInUp}
                 whileHover={{ y: -10, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
                 {/* Publication Header */}
-                <div className={`relative h-48 bg-gradient-to-r ${publication.color} p-6`}>
+                <div className={`relative h-48 bg-gradient-to-r ${publication.color} p-6 flex-shrink-0`}>
                   <div className="absolute inset-0 bg-black/10" />
                   <div className="relative z-10 h-full flex flex-col justify-between">
                     <div className="flex justify-between items-start">
@@ -108,8 +118,8 @@ const Publications = () => {
                 </div>
 
                 {/* Publication Content */}
-                <div className="p-6 relative z-20"> {/* Added relative z-20 */}
-                  <div className="mb-4">
+                <div className="p-6 relative z-20 flex-grow flex flex-col">
+                  <div className="mb-4 flex-grow">
                     <span className="inline-block bg-gray-100 text-gray-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">
                       {publication.category}
                     </span>
@@ -118,12 +128,12 @@ const Publications = () => {
                     </p>
                   </div>
 
-                  {/* Action Button - FIXED with proper styling */}
+                  {/* Action Button */}
                   <a
                     href={publication.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white py-3 px-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group cursor-pointer no-underline relative z-30"
+                    className="inline-flex items-center justify-center w-full bg-gradient-to-r from-primary-500 to-secondary-500 text-white py-3 px-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 group cursor-pointer no-underline relative z-30 mt-4"
                     style={{ pointerEvents: 'auto' }}
                   >
                     <span>Read Publication</span>
