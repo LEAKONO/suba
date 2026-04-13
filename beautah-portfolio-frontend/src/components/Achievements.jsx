@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Trophy, Star, Medal } from 'lucide-react';
+import { Award, Trophy, Star, Medal, ExternalLink, FileText } from 'lucide-react';
 import { achievements } from '../utils/constants';
 import { fadeInUp, staggerContainer, scaleIn } from '../utils/animations';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
@@ -23,6 +23,9 @@ const Achievements = () => {
     "Jubilee Medal (2017)",
     "Defence Forces Commendation (2019)"
   ];
+
+  // IGMAP Letter Link
+  const igmapLetterLink = "https://drive.google.com/file/d/1xlHhKrbAITq0QFHp5pRJEHmmpLjhujPS/view?usp=sharing";
 
   return (
     <section id="achievements" className="py-20 bg-white relative overflow-hidden">
@@ -108,6 +111,48 @@ const Achievements = () => {
               </motion.div>
             );
           })}
+        </motion.div>
+
+        {/* IGMAP Recognition Card - NEW */}
+        <motion.div 
+          className="mb-16 bg-gradient-to-r from-amber-50 to-orange-50 rounded-3xl p-8 border-2 border-amber-200 relative overflow-hidden"
+          variants={fadeInUp}
+          whileHover={{ scale: 1.01 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          <div className="absolute top-0 right-0 w-32 h-32 bg-amber-200 rounded-full -translate-y-16 translate-x-16 opacity-30"></div>
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center">
+                  <FileText size={24} className="text-white" />
+                </div>
+                <span className="bg-amber-200 text-amber-800 text-sm font-semibold px-3 py-1 rounded-full">
+                  Academic Recognition
+                </span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                IGMAP Guest Lecture Acknowledgement
+              </h3>
+              <p className="text-gray-700 mb-2">
+                Binghamton University, State University of New York — October 16, 2025
+              </p>
+              <p className="text-gray-600">
+                Recognized for impactful guest lecture on masculinity in military peacekeeping contexts in the DRC, 
+                bridging academic inquiry with operational realities.
+              </p>
+            </div>
+            <a 
+              href={igmapLetterLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
+            >
+              <FileText size={18} />
+              View Official Letter
+              <ExternalLink size={16} />
+            </a>
+          </div>
         </motion.div>
 
         {/* Additional Recognition */}
